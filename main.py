@@ -49,11 +49,14 @@ def generate_content() -> dict:
 
 def main():
     Path("out").mkdir(parents=True, exist_ok=True)
+    
     for card_number in range(11):
         content = generate_content()
-        render_template("src\\charsheet.svg",
-                        f"out\\charsheet_{card_number}.svg",
-                        content)
+        render_template(
+            "src\\charsheet.svg",
+            f"out\\charsheet_{card_number}.svg",
+            content
+        )
 
 
 if __name__ == "__main__":
