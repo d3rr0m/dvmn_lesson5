@@ -1,6 +1,7 @@
 from faker import Faker
 from random import randint
 from random import sample
+from pathlib import Path
 
 from file_operations import render_template
 from src.letters_mapping import letters_mapping
@@ -38,6 +39,7 @@ def generate_content() -> dict:
     return content
 
 def main():
+    Path("out").mkdir(parents=True, exist_ok=True)
     for card_number in range(11):
         content = generate_content()
         render_template("src\charsheet.svg", f"out\\charsheet_{card_number}.svg", content)
