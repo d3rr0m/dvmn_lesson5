@@ -10,8 +10,10 @@ RANGE_START = 3
 RANGE_STOP = 18
 
 fake = Faker("ru_RU")
-skills = ["Стремительный прыжок", "Электрический выстрел", "Ледяной удар", "Стремительный удар", "Кислотный взгляд", 
-          "Тайный побег", "Ледяной выстрел", "Огненный заряд"]
+skills = ["Стремительный прыжок", "Электрический выстрел", "Ледяной удар",
+          "Стремительный удар", "Кислотный взгляд", "Тайный побег",
+          "Ледяной выстрел", "Огненный заряд"]
+
 
 def generate_content() -> dict:
     charachter_skills = sample(skills, 3)
@@ -38,11 +40,15 @@ def generate_content() -> dict:
     }
     return content
 
+
 def main():
     Path("out").mkdir(parents=True, exist_ok=True)
     for card_number in range(11):
         content = generate_content()
-        render_template("src\charsheet.svg", f"out\\charsheet_{card_number}.svg", content)
+        render_template("src\\charsheet.svg",
+                        f"out\\charsheet_{card_number}.svg",
+                        content)
 
-if __name__ == '__main__'    :
+
+if __name__ == '__main__':
     main()
