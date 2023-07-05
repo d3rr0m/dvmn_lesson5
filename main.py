@@ -9,13 +9,19 @@ from src.letters_mapping import letters_mapping
 RANGE_START = 3
 RANGE_STOP = 18
 
-fake = Faker("ru_RU")
-skills = ["Стремительный прыжок", "Электрический выстрел", "Ледяной удар",
-          "Стремительный удар", "Кислотный взгляд", "Тайный побег",
-          "Ледяной выстрел", "Огненный заряд"]
-
 
 def generate_content() -> dict:
+    fake = Faker("ru_RU")
+    skills = [
+        "Стремительный прыжок",
+        "Электрический выстрел",
+        "Ледяной удар",
+        "Стремительный удар",
+        "Кислотный взгляд",
+        "Тайный побег",
+        "Ледяной выстрел",
+        "Огненный заряд",
+    ]
     charachter_skills = sample(skills, 3)
     ruinic_skills = []
 
@@ -50,5 +56,5 @@ def main():
                         content)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
